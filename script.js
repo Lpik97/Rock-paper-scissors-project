@@ -9,3 +9,18 @@ function GetComputerChoice(Choice) {
         return "Rock";
     }
 }
+
+function FirstRound(playerSelection, computerSelection) {
+    playerSelection = playerSelection.toLowerCase()
+    computerSelection = computerSelection.toLowerCase()
+    if (playerSelection == "rock") {
+        if (computerSelection == "rock")
+            return "It's a tie";
+    }
+    else if (computerSelection == "paper") {
+            return "You lose";
+    }
+    else if (computerSelection == "scissors") {
+            return "You win";
+    }
+}
