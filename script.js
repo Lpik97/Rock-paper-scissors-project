@@ -1,15 +1,11 @@
-function GetComputerChoice(Choice) {
-    if (Choice == "Rock") {
-        return "Paper"; //This function starts with a conditional that returns the opposite option for each choice the computer makes.
+function GetComputerChoice() {
+    let options = ["rock", "paper", "scissors"];
+    function getRandomOption() {
+        let randomIndex = Math.floor(Math.random() * 3);
+        return options[randomIndex];
     }
-    else if (Choice == "Paper") {
-        return "Scissors";
-    }
-    else {
-        return "Rock";
-    }
+    return getRandomOption();
 }
-
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase() 
     computerSelection = computerSelection.toLowerCase() //With this we assure that whatever is the imput, it always gets converted to a lower-case imput.
@@ -38,3 +34,4 @@ function playRound(playerSelection, computerSelection) {
         return "You have chosen something different from rock, paper or scissors." ;
     }
 }
+
