@@ -35,6 +35,24 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = "rock";
-const computerSelection = GetComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let i = 0; i <5; i++){
+        const playerSelection = "rock";
+        const computerSelection = GetComputerChoice();
+        const roundResult = playRound(playerSelection,computerSelection);
+        if (roundResult.startsWith("You win")) {
+            playerScore++;
+        } else if (roundResult.startsWith ("You lose")) {
+            computerScore++;
+        }
+    }
+    if (playerScore > computerScore) {
+        console.log("You win! Your score is:"+ playerScore +", and the computer one is:"+ computerScore);
+    } else if (playerScore < computerScore) {
+        console.log("You lose! Your score is:"+ playerScore +", and the computer one is:"+ computerScore);
+    } else {
+        console.log("It's a tie, both score the same amount:"+ playerScore);
+    }
+}
