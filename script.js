@@ -36,19 +36,19 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-    let playerScore = 0;
+    let playerScore = 0; //These are the initial score values for both the player and the computer.
     let computerScore = 0;
-    for (let i = 0; i <5; i++){
-        const playerSelection = "rock";
+    for (let i = 0; i <5; i++){ //The loop starts in number 0, it has 5 as a condition value because there will be 5 rounds. FInally, the afterthought expression increments the counter variable by 1.
+        const playerSelection = "rock"; //The constants were moved to be inside the loop as they will be used as values for the 'playRound' function.
         const computerSelection = GetComputerChoice();
         const roundResult = playRound(playerSelection,computerSelection);
-        if (roundResult.startsWith("You win")) {
+        if (roundResult.startsWith("You win")) { //This conditional statement compares the round result with two values (you win and you lose) and then if any of this confirms to be true, it increments the points.
             playerScore++;
         } else if (roundResult.startsWith ("You lose")) {
             computerScore++;
         }
     }
-    if (playerScore > computerScore) {
+    if (playerScore > computerScore) { //This conditional statement check either the player or computer score its higher than the opponent's one, depending on the result it will display who has won the match.
         console.log("You win! Your score is:"+ playerScore +", and the computer one is:"+ computerScore);
     } else if (playerScore < computerScore) {
         console.log("You lose! Your score is:"+ playerScore +", and the computer one is:"+ computerScore);
