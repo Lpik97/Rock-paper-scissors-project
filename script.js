@@ -49,10 +49,12 @@ function game() {
         }
     }
     if (playerScore > computerScore) { //This conditional statement check either the player or computer score its higher than the opponent's one, depending on the result it will display who has won the match.
-        console.log("You win! Your score is:"+ playerScore +", and the computer one is:"+ computerScore);
+        console.log("You win! Your final score is: "+ playerScore +", and the computer one is: "+ computerScore);
     } else if (playerScore < computerScore) {
-        console.log("You lose! Your score is:"+ playerScore +", and the computer one is:"+ computerScore);
+        console.log("You lose! Your final score is: "+ playerScore +", and the computer one is: "+ computerScore);
     } else {
-        console.log("It's a tie, both score the same amount:"+ playerScore);
+        console.log("It's a tie, both score the same amount: "+ playerScore);
     }
 }
+
+game()
