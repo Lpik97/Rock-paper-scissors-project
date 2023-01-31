@@ -39,7 +39,7 @@ function game() {
     let playerScore = 0; //These are the initial score values for both the player and the computer.
     let computerScore = 0;
     for (let i = 0; i <5; i++){ //The loop starts in number 0, it has 5 as a condition value because there will be 5 rounds. FInally, the afterthought expression increments the counter variable by 1.
-        const playerSelection = "rock"; //The constants were moved to be inside the loop as they will be used as values for the 'playRound' function.
+        const playerSelection = prompt("Choose your weapon", "Rock - Paper - Scissors"); //The constants were moved to be inside the loop as they will be used as values for the 'playRound' function. A prompt was added where the user can select between the 3 possible options.
         const computerSelection = GetComputerChoice();
         const roundResult = playRound(playerSelection,computerSelection);
         if (roundResult.startsWith("You win")) { //This conditional statement compares the round result with two values (you win and you lose) and then if any of this confirms to be true, it increments the points.
