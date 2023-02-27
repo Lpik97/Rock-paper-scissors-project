@@ -1,3 +1,7 @@
+const rockBtn = document.querySelector('#rock');
+const paperBtn = document.querySelector('#paper');
+const scissorsBtn = document.querySelector('#scissors');
+
 function GetComputerChoice() {
     let options = ["rock", "paper", "scissors"]; //This variable contains three possible options displayed inside an array.
     function getRandomOption() {
