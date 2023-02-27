@@ -6,13 +6,13 @@ function GetComputerChoice() {
     }
     return getRandomOption();
 }
+
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase() 
-    computerSelection = computerSelection.toLowerCase() //With this we assure that whatever is the imput, it always gets converted to a lower-case imput.
+    playerSelection = playerSelection.toLowerCase();
+    computerSelection = computerSelection.toLowerCase(); //With this we assure that whatever is the imput, it always gets converted to a lower-case imput.
     if (playerSelection === computerSelection) {
         return "Both have chosen the same, it is a tie."
-    }
-    if (playerSelection === "rock") {
+    } else if (playerSelection === "rock") {
         if (computerSelection === "scissors") {
             return "You win, rock beats scissors.";
         } else if (computerSelection === "paper") {
@@ -57,4 +57,4 @@ function game() {
     }
 }
 
-game()
+game();
