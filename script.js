@@ -1,7 +1,3 @@
-const rockBtn = document.querySelector('#rock');
-const paperBtn = document.querySelector('#paper');
-const scissorsBtn = document.querySelector('#scissors');
-
 function GetComputerChoice() {
     let options = ["rock", "paper", "scissors"]; //This variable contains three possible options displayed inside an array.
     function getRandomOption() {
@@ -42,16 +38,40 @@ function playRound(playerSelection, computerSelection) {
 function game() {
     let playerScore = 0; //These are the initial score values for both the player and the computer.
     let computerScore = 0;
-    for (let i = 0; i <5; i++){ //The loop starts in number 0, it has 5 as a condition value because there will be 5 rounds. FInally, the afterthought expression increments the counter variable by 1.
-        const playerSelection = prompt("Choose your weapon", "Rock - Paper - Scissors"); //The constants were moved to be inside the loop as they will be used as values for the 'playRound' function. A prompt was added where the user can select between the 3 possible options.
+    const rockBtn = document.getElementById("rock");
+    const paperBtn = document.getElementById("paper");
+    const scissorsBtn = document.getElementById("scissors");
+    rockBtn.addEventListener('click', function() {
+        const playerSelection = 'rock';
         const computerSelection = GetComputerChoice();
-        const roundResult = playRound(playerSelection,computerSelection);
-        if (roundResult.startsWith("You win")) { //This conditional statement compares the round result with two values (you win and you lose) and then if any of this confirms to be true, it increments the points.
+        const roundResult = playRound(playerSelection, computerSelection);
+        console.log(roundResult);
+        if (roundResult.startsWith("You win")) {
             playerScore++;
         } else if (roundResult.startsWith ("You lose")) {
             computerScore++;
         }
-    }
+    });
+    paperBtn.addEventListener('click', function() {
+        const playerSelection = 'paper';
+        const computerSelection = GetComputerChoice();
+        const roundResult = playRound(playerSelection, computerSelection);
+        if (roundResult.startsWith("You win")) {
+            playerScore++;
+        } else if (roundResult.startsWith ("You lose")) {
+            computerScore++;
+        }
+    });
+    scissorsBtn.addEventListener('click', function() {
+        const playerSelection = 'scissors';
+        const computerSelection = GetComputerChoice();
+        const roundResult = playRound(playerSelection, computerSelection);
+        if (roundResult.startsWith("You win")) {
+            playerScore++;
+        } else if (roundResult.startsWith ("You lose")) {
+            computerScore++;
+        }
+    });
     if (playerScore > computerScore) { //This conditional statement check either the player or computer score its higher than the opponent's one, depending on the result it will display who has won the match.
         console.log("You win! Your final score is: "+ playerScore +", and the computer one is: "+ computerScore);
     } else if (playerScore < computerScore) {
