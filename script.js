@@ -1,6 +1,8 @@
-const rockBtn = document.getElementById("rock");
-const paperBtn = document.getElementById("paper");
-const scissorsBtn = document.getElementById("scissors");
+let computerScore = 0;
+let playerScore = 0;
+const rockBtn = document.querySelector(".rock");
+const paperBtn = document.querySelector(".paper");
+const scissorsBtn = document.querySelector(".scissors");
 
 function GetComputerChoice() {
     let options = ["rock", "paper", "scissors"]; //This variable contains three possible options displayed inside an array.
@@ -17,30 +19,43 @@ function playRound(playerSelection, computerSelection) {
         return 'You have chosen something different from rock, paper or scissors, please try again.'
     } else if (playerSelection === computerSelection) { //Starting from here, the score is added automatically in each round.
         return 'It is a tie, both have chosen the same.'
-        playerScore++ && computerScore++;
     } else if (playerSelection === 'rock' && computerSelection === 'paper') {
+        computerScore++;
         return 'You lose, paper covers rock.';
-        computerScore++;
     } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
+        playerScore++;
         return 'You win, rock smash scissors.';
-        playerScore++;
     } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+        computerScore++;
         return 'You lose, scissors cut paper.';
-        computerScore++;
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        return 'You win, paper covers rock.';
-        playerScore++:
-    } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-        return 'You lose, rock smash scissors.';
-        computerScore++;
-    } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        return 'You win, scissors cut paper';
         playerScore++;
+        return 'You win, paper covers rock.';
+    } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+        computerScore++;
+        return 'You lose, rock smash scissors.';
+    } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+        playerScore++;
+        return 'You win, scissors cut paper';
     }
 }
 
 function game() {
-
+    rockBtn.addEventListener('click', function() {
+        const playerSelection = 'rock';
+        const computerSelection = GetComputerChoice();
+        playRound(playerSelection, computerSelection);
+    });
+    paperBtn.addEventListener('click', function() {
+        const playerSelection = 'paper';
+        const computerSelection = GetComputerChoice();
+        playRound(playerSelection, computerSelection);
+    });
+    scissorsBtn.addEventListener('click', function() {
+        const playerSelection = 'scissors';
+        const computerSelection = GetComputerChoice();
+        playRound(playerSelection, computerSelection);
+    });
     if (playerScore > computerScore) { //This conditional statement check either the player or computer score its higher than the opponent's one, depending on the result it will display who has won the match.
         console.log("You win! Your final score is: "+ playerScore +", and the computer one is: "+ computerScore);
     } else if (playerScore < computerScore) {
