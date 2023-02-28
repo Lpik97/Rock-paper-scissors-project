@@ -3,6 +3,7 @@ let playerScore = 0;
 const rockBtn = document.querySelector(".rock");
 const paperBtn = document.querySelector(".paper");
 const scissorsBtn = document.querySelector(".scissors");
+const roundResultDiv = document.querySelector("#roundResult");
 
 function GetComputerChoice() {
     let options = ["rock", "paper", "scissors"]; //This variable contains three possible options displayed inside an array.
@@ -16,27 +17,43 @@ function GetComputerChoice() {
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase(); //With this we assure that whatever is the imput, it always gets converted to a lower-case imput.
     if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors') { //This if statement checks wether the first selection is not any of the valid ones.
-        console.log('You have chosen something different from rock, paper or scissors, please try again.');
+        const p = document.createElement('p');
+        p.innerText = 'You have chosen something different from rock, paper or scissors, please try again.';
+        roundResultDiv.appendChild(p);
     } else if (playerSelection === computerSelection) { //Starting from here, the score is added automatically in each round.
-        console.log('It is a tie, both have chosen the same.');
+        const p = document.createElement('p');
+        p.innerText = 'It is a tie, both have chosen the same.';
+        roundResultDiv.appendChild(p);
     } else if (playerSelection === 'rock' && computerSelection === 'paper') {
         computerScore++;
-        console.log('You lose, paper covers rock.');
+        const p = document.createElement('p');
+        p.innerText = 'You lose, paper covers rock.';
+        roundResultDiv.appendChild(p);
     } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
         playerScore++;
-        console.log ('You win, rock smash scissors.');
+        const p = document.createElement('p');
+        p.innerText = 'You win, rock smash scissors.';
+        roundResultDiv.appendChild(p);
     } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
         computerScore++;
-        console.log('You lose, scissors cut paper.');
+        const p = document.createElement('p');
+        p.innerText = 'You lose, scissors cut paper.';
+        roundResultDiv.appendChild(p);
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
         playerScore++;
-        console.log('You win, paper covers rock.');
+        const p = document.createElement('p');
+        p.innerText = 'You win, paper covers rock.';
+        roundResultDiv.appendChild(p);
     } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
         computerScore++;
-        console.log('You lose, rock smash scissors.');
+        const p = document.createElement('p');
+        p.innerText = 'You lose, rock smash scissors.';
+        roundResultDiv.appendChild(p);
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
         playerScore++;
-        console.log('You win, scissors cut paper');
+        const p = document.createElement('p');
+        p.innerText = 'You win, scissors cut paper.';
+        roundResultDiv.appendChild(p);
     }
 }
 
