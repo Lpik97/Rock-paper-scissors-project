@@ -4,6 +4,7 @@ const rockBtn = document.querySelector(".rock");
 const paperBtn = document.querySelector(".paper");
 const scissorsBtn = document.querySelector(".scissors");
 const roundResultDiv = document.querySelector("#roundResult");
+const finalResultDiv = document.querySelector('#finalResult');
 
 function GetComputerChoice() {
     let options = ["rock", "paper", "scissors"]; //This variable contains three possible options displayed inside an array.
@@ -57,29 +58,39 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+function checkForWinner(playerScore, computerScore) {
+    if (playerScore === 5) {
+    const h1 = document.createElement('h1');
+    h1.innerText = 'You win ! Your final score is ' + `${playerScore}` + ' and the compuer one is ' + `${computerScore}` +  '.'
+    finalResultDiv.appendChild(h1);
+    }
+
+    if(computerScore === 5) {
+    const h1 = document.createElement('h1');
+    h1.innerText = 'You lose ! Your final score is ' + `${playerScore}` + ' and the compuer one is ' + `${computerScore}` +  '.'
+    finalResultDiv.appendChild(h1);
+    }
+}
+
 function game() {
     rockBtn.addEventListener('click', function() {
         const playerSelection = 'rock';
         const computerSelection = GetComputerChoice();
         playRound(playerSelection, computerSelection);
+        checkForWinner(playerScore, computerScore);
     });
     paperBtn.addEventListener('click', function() {
         const playerSelection = 'paper';
         const computerSelection = GetComputerChoice();
         playRound(playerSelection, computerSelection);
+        checkForWinner(playerScore, computerScore);
     });
     scissorsBtn.addEventListener('click', function() {
         const playerSelection = 'scissors';
         const computerSelection = GetComputerChoice();
         playRound(playerSelection, computerSelection);
+        checkForWinner(playerScore, computerScore);
     });
-    // if (playerScore > computerScore) { //This conditional statement check either the player or computer score its higher than the opponent's one, depending on the result it will display who has won the match.
-    //     console.log("You win! Your final score is: "+ playerScore +", and the computer one is: "+ computerScore);
-    // } else if (playerScore < computerScore) {
-    //     console.log("You lose! Your final score is: "+ playerScore +", and the computer one is: "+ computerScore);
-    // } else {
-    //     console.log("It's a tie, both score the same amount: "+ playerScore);
-    // }
 }
 
 game();
