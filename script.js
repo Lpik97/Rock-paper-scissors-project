@@ -23,6 +23,10 @@ function GetComputerChoice() {
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase(); //With this we assure that whatever is the imput, it always gets converted to a lower-case imput.
     if (playerSelection === computerSelection) { //Starting from here, the score is added automatically in each round.
+        p1.innerText = `${computerName}` + ' score: ' + computerScore + ` ${playerName}` + ' score: ' + playerScore;
+        if(!p1.parentNode) {
+            runningResultDiv.appendChild(p1);
+        }
         p2.innerText = 'It is a tie, both have chosen the same.';
         if(!p2.parentNode) {
             roundResultDiv.appendChild(p2);
