@@ -1,5 +1,7 @@
 let computerScore = 0;
 let playerScore = 0;
+const playerName = 'Player';
+const computerName = 'Computer';
 const rockBtn = document.querySelector(".rock");
 const paperBtn = document.querySelector(".paper");
 const scissorsBtn = document.querySelector(".scissors");
@@ -59,16 +61,14 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function checkForWinner(playerScore, computerScore) {
-    if (playerScore === 5) {
-    const h1 = document.createElement('h1');
-    h1.innerText = 'You win ! Your final score is ' + `${playerScore}` + ' and the compuer one is ' + `${computerScore}` +  '.'
-    finalResultDiv.appendChild(h1);
-    }
-
-    if(computerScore === 5) {
-    const h1 = document.createElement('h1');
-    h1.innerText = 'You lose ! Your final score is ' + `${playerScore}` + ' and the compuer one is ' + `${computerScore}` +  '.'
-    finalResultDiv.appendChild(h1);
+    if (playerScore === 5 && computerScore !== 5) {
+        const h1 = document.createElement('h1');
+        h1.innerText = `${playerName}` + ' wins! His final score is ' + `${playerScore}` + ' and the compuer one is ' + `${computerScore}` +  '.'
+        finalResultDiv.appendChild(h1);
+    } else if (playerScore !== 5 && computerScore === 5) {
+        const h1 = document.createElement('h1');
+        h1.innerText = `${computerName}` + ' wins! Its final score is ' + `${computerScore}` + ' and the player one is ' + `${playerScore}` +  '.'
+        finalResultDiv.appendChild(h1);
     }
 }
 
