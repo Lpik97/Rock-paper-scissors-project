@@ -29,7 +29,7 @@ function playRound(playerSelection, computerSelection) {
         }
     } else if (playerSelection === 'rock' && computerSelection === 'paper') {
         const newScore = ++computerScore;
-        p1.innerText = `${computerName}` + ' score: ' + newScore + `${playerName}` + ' score: ' + playerScore;
+        p1.innerText = `${computerName}` + ' score: ' + newScore + ` ${playerName}` + ' score: ' + playerScore;
         if(!p1.parentNode) {
             runningResultDiv.appendChild(p1);
         }
@@ -39,7 +39,7 @@ function playRound(playerSelection, computerSelection) {
         }
     } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
         const newScore = ++playerScore;
-        p1.innerText = `${playerName}` + ' score: ' + newScore + `${computerName}` + ' score: ' + computerScore;
+        p1.innerText = `${computerName}` + ' score: ' + computerScore + ` ${playerName}` + ' score: ' + newScore;
         if(!p1.parentNode) {
             runningResultDiv.appendChild(p1);
         }
@@ -49,7 +49,7 @@ function playRound(playerSelection, computerSelection) {
         }
     } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
         const newScore = ++computerScore;
-        p1.innerText = `${computerName}` + ' score: ' + newScore + `${playerName}` + ' score: ' + playerScore;
+        p1.innerText = `${computerName}` + ' score: ' + newScore + ` ${playerName}` + ' score: ' + playerScore;
         if(!p1.parentNode) {
             runningResultDiv.appendChild(p1);
         }
@@ -59,7 +59,7 @@ function playRound(playerSelection, computerSelection) {
         };
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
         const newScore = ++playerScore;
-        p1.innerText = `${playerName}` + ' score: ' + newScore + `${computerName}` + ' score: ' + computerScore;
+        p1.innerText = `${computerName}` + ' score: ' + computerScore + ` ${playerName}` + ' score: ' + newScore;
         if(!p1.parentNode) {
             runningResultDiv.appendChild(p1);
         }
@@ -69,7 +69,7 @@ function playRound(playerSelection, computerSelection) {
         }
     } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
         const newScore = ++computerScore;
-        p1.innerText = `${computerName}` + ' score: ' + newScore + `${playerName}` + ' score: ' + playerScore;
+        p1.innerText = `${computerName}` + ' score: ' + newScore + ` ${playerName}` + ' score: ' + playerScore;
         if(!p1.parentNode) {
             runningResultDiv.appendChild(p1);
         }
@@ -79,7 +79,7 @@ function playRound(playerSelection, computerSelection) {
         };
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
         const newScore = ++playerScore;
-        p1.innerText = `${playerName}` + ' score: ' + newScore + `${computerName}` + ' score: ' + computerScore;
+        p1.innerText = `${computerName}` + ' score: ' + computerScore + ` ${playerName}` + ' score: ' + newScore;
         if(!p1.parentNode) {
             runningResultDiv.appendChild(p1);
         }
