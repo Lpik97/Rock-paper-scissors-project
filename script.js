@@ -6,7 +6,10 @@ const rockBtn = document.querySelector(".rock");
 const paperBtn = document.querySelector(".paper");
 const scissorsBtn = document.querySelector(".scissors");
 const roundResultDiv = document.querySelector("#roundResult");
+const runningResultDiv = document.querySelector('#runningResult');
 const finalResultDiv = document.querySelector('#finalResult');
+const p1 = document.createElement('p');
+const p2 = document.createElement('p');
 
 function GetComputerChoice() {
     let options = ["rock", "paper", "scissors"]; //This variable contains three possible options displayed inside an array.
@@ -19,44 +22,71 @@ function GetComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase(); //With this we assure that whatever is the imput, it always gets converted to a lower-case imput.
-    if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors') { //This if statement checks wether the first selection is not any of the valid ones.
-        const p = document.createElement('p');
-        p.innerText = 'You have chosen something different from rock, paper or scissors, please try again.';
-        roundResultDiv.appendChild(p);
-    } else if (playerSelection === computerSelection) { //Starting from here, the score is added automatically in each round.
-        const p = document.createElement('p');
-        p.innerText = 'It is a tie, both have chosen the same.';
-        roundResultDiv.appendChild(p);
+    if (playerSelection === computerSelection) { //Starting from here, the score is added automatically in each round.
+        p2.innerText = 'It is a tie, both have chosen the same.';
+        if(!p2.parentNode) {
+            roundResultDiv.appendChild(p2);
+        }
     } else if (playerSelection === 'rock' && computerSelection === 'paper') {
-        computerScore++;
-        const p = document.createElement('p');
-        p.innerText = 'You lose, paper covers rock.';
-        roundResultDiv.appendChild(p);
+        const newScore = ++computerScore;
+        p1.innerText = `${computerName}` + ' score: ' + newScore + `${playerName}` + ' score: ' + playerScore;
+        if(!p1.parentNode) {
+            runningResultDiv.appendChild(p1);
+        }
+        p2.innerText = 'You lose, paper covers rock.';
+        if(!p2.parentNode) {
+            roundResultDiv.appendChild(p2);
+        }
     } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        playerScore++;
-        const p = document.createElement('p');
-        p.innerText = 'You win, rock smash scissors.';
-        roundResultDiv.appendChild(p);
+        const newScore = ++playerScore;
+        p1.innerText = `${playerName}` + ' score: ' + newScore + `${computerName}` + ' score: ' + computerScore;
+        if(!p1.parentNode) {
+            runningResultDiv.appendChild(p1);
+        }
+        p2.innerText = 'You win, rock smash scissors.';
+        if(!p2.parentNode) {
+            roundResultDiv.appendChild(p2);
+        }
     } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-        computerScore++;
-        const p = document.createElement('p');
-        p.innerText = 'You lose, scissors cut paper.';
-        roundResultDiv.appendChild(p);
+        const newScore = ++computerScore;
+        p1.innerText = `${computerName}` + ' score: ' + newScore + `${playerName}` + ' score: ' + playerScore;
+        if(!p1.parentNode) {
+            runningResultDiv.appendChild(p1);
+        }
+        p2.innerText = 'You lose, scissors cut paper.';
+        if(!p2.parentNode) {
+            roundResultDiv.appendChild(p2);
+        };
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        playerScore++;
-        const p = document.createElement('p');
-        p.innerText = 'You win, paper covers rock.';
-        roundResultDiv.appendChild(p);
+        const newScore = ++playerScore;
+        p1.innerText = `${playerName}` + ' score: ' + newScore + `${computerName}` + ' score: ' + computerScore;
+        if(!p1.parentNode) {
+            runningResultDiv.appendChild(p1);
+        }
+        p2.innerText = 'You win, paper covers rock.';
+        if(!p2.parentNode) {
+            roundResultDiv.appendChild(p2);
+        }
     } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-        computerScore++;
-        const p = document.createElement('p');
-        p.innerText = 'You lose, rock smash scissors.';
-        roundResultDiv.appendChild(p);
+        const newScore = ++computerScore;
+        p1.innerText = `${computerName}` + ' score: ' + newScore + `${playerName}` + ' score: ' + playerScore;
+        if(!p1.parentNode) {
+            runningResultDiv.appendChild(p1);
+        }
+        p2.innerText = 'You lose, rock smash scissors';
+        if(!p2.parentNode) {
+            roundResultDiv.appendChild(p2);
+        };
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        playerScore++;
-        const p = document.createElement('p');
-        p.innerText = 'You win, scissors cut paper.';
-        roundResultDiv.appendChild(p);
+        const newScore = ++playerScore;
+        p1.innerText = `${playerName}` + ' score: ' + newScore + `${computerName}` + ' score: ' + computerScore;
+        if(!p1.parentNode) {
+            runningResultDiv.appendChild(p1);
+        }
+        p2.innerText = 'You win, scissors cut paper.';
+        if(!p2.parentNode) {
+            roundResultDiv.appendChild(p2);
+        };
     }
 }
 
@@ -68,6 +98,10 @@ function checkForWinner(playerScore, computerScore) {
     } else if (playerScore !== 5 && computerScore === 5) {
         const h1 = document.createElement('h1');
         h1.innerText = `${computerName}` + ' wins! Its final score is ' + `${computerScore}` + ' and the player one is ' + `${playerScore}` +  '.'
+        finalResultDiv.appendChild(h1);
+    } else if (playerScore === 5 && computerScore === 5) {
+        const h1 = document.createElement('h1');
+        h1.innerText = 'This is a tie, both scored 5 points.'
         finalResultDiv.appendChild(h1);
     }
 }
